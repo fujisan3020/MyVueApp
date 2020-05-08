@@ -16,7 +16,11 @@
 
         <!-- v- から始まる特殊な属性をディレクティブと呼ぶ -->
         <!-- for文 -->
-        <li v-for="todo in todos">{{ todo }}</li>
+        <li v-for="(todo, index) in todos">{{ todo.title }}
+         <!-- deleteItemに何番目のtodoを削除するかし指示するために、上でindexを指定し、
+         それをdeleteItemに渡す -->
+        <span @click="deleteItem(index)" class="command">[x]</span>
+        </li>
       </ul>
 
       <!-- <form v-on:submit="addItem"> -->
