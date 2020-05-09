@@ -8,7 +8,10 @@
   <body>
 
     <div id="app" class="container">
-      <h1>My Todos</h1>
+      <h1>
+        My Todos
+        <span class="info">({{ remaining }}/{{ todos.length }})</span>
+      </h1>
 
       <!-- パターン① : v-ifを使わなかった場合 -->
       <ul>
@@ -28,19 +31,6 @@
         <!-- !todos.length : todosが空だった時(todosがfalseの時) -->
         <li v-show="!todos.length">Nothing to do, yay!</li>
       </ul>
-
-      <!-- パターン② : v-ifを使った場合 -->
-      <!-- <ul v-if="todos.length">
-        <li v-for="(todo, index) in todos">
-          <input type="checkbox" v-model="todo.isDone">
-          <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-        <span @click="deleteItem(index)" class="command">[x]</span>
-        </li>
-      </ul>
-
-      <ul>
-        <li v-else>Nothing to do, yay!</li>
-      </ul> -->
 
       <!-- <form v-on:submit="addItem"> -->
       <!-- v-onはイベントで、@で省略できる -->

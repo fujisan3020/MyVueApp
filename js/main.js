@@ -39,7 +39,15 @@
           //index番目から1つ削除する
           this.todos.splice(index, 1);
         }
-      },
+      }
+    },
+    computed: {
+      remaining: function () {
+        var items = this.todos.filter(function(todo) {
+          return !todo.isDone;
+        });
+        return items.length;
+      }
     }
   });
 })();
